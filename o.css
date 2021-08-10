@@ -1,0 +1,57 @@
+html {
+  background: url(back_for_others.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.con {
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+}
+
+.heading_o {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.mor,
+.loan {
+  background-color: black;
+  width: 90%;
+  color: white;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  padding-top: 25px;
+  margin-top: 50px;
+  height: 100px;
+  margin: auto;
+}
+
+.mor:hover,
+.loan:hover {
+  transform: scale(1.1);
+  background-color: inherit;
+}
+
+.mor:hover > a,
+.loan:hover > a {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: aqua;
+}
+
+.loan {
+  margin-top: 20px;
+}
+
+h2 {
+  width: 100%;
+  height: 100%;
+}

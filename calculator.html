@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYDMTWG4T6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XYDMTWG4T6');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav_bar.css">
+    <link rel="stylesheet" href="calculator.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+    <link rel="shortcut icon" href="Titl_logo.jpg">
+    <title>RealEst: Calculator</title>
+</head>
+<body class="scrollbar" id="style-1">
+    <div class="back"></div>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="o.html">O.Tools</a></li>
+            <li><a href="articles.html">Articles/Videos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="main_con">
+        <div class="head">
+            <h1 class="h">Rental Property Calculator</h1>
+            <strong><p class="para">Plug in the numbers and get important returns like the COC ROI, <br>NOI, Income vs Expense graph, Rent vs Other incomes graph, <br> Cash Flow, Expense breakdown graph, Cap rate, Pro Forma Cap rate, and more</p>
+            <p class="para">Click on the label of the input field to get more information on what to enter there.</p></strong>
+        </div> 
+        <form onsubmit="return false;">
+            <h1 onclick="rep_name_info()" class="required">Report Name</h1>
+            <input oninput="inp_change()" id="rep_name_inp" type="text">
+            <hr>
+            <h1>Property Information</h1>
+            <div class="inner_con">
+                <h2 onclick="address_info()">Address</h2>
+                    <div class="inside">
+                        <div class="lab_inp">
+                            <label onclick="st_name_info()" id="str_name" class="required" class="label">Street Name</label>
+                            <input oninput="inp_change()" id="st_name_inp" type="text">
+                        </div>
+                        <div class="lab_inp">
+                            <label onclick="city_info()" class="required" class="label">City</label>
+                            <input oninput="inp_change()" id="city_inp" type="text">
+                        </div>
+                        <div class="lab_inp">
+                            <label onclick="zip_info()" class="required" class="label">Zip Code</label>
+                            <input oninput="inp_change()" id="zip_inp" type="number">
+                        </div>
+                        <div class="lab_inp">
+                            <label onclick="state_info()" class="required" class="label">State</label>
+                            <input oninput="inp_change()" id="state_inp" type="text">
+                        </div>
+                        <div class="lab_inp">
+                            <label onclick="country_info()" class="required" class="label">Country</label>
+                            <input oninput="inp_change()" id="country" type="text">
+                        </div>
+                    </div>
+                <h2>Details</h2>
+                <div class="inside">
+                    <div class="lab_inp">
+                        <label onclick="bed_info()" class="label">Bedrooms</label>
+                        <input oninput="inp_change()" id="bd" type="number">
+                    </div>
+                    <div class="lab_inp">
+                        <label onclick="bath_info()" class="label">Bathrooms</label>
+                        <input oninput="inp_change()" id="br" type="number">
+                    </div>
+                    <div class="lab_inp">
+                        <label onclick="sq_info()" class="label">Square Feet</label>
+                        <input oninput="inp_change()" id="sq" type="number">
+                    </div>
+                </div>  
+                <h2 onclick="pic_info()">Picture</h2>
+                    <div class="pic_upload">
+                        <label for="pic" id="pic_lab" class="label">Upload a Picture</label>
+                        <input type="file" onchange="loadFile(event)" accept="image/*" id="pic">
+                        <img id="output">
+                    </div>
+            </div>
+            <hr>
+            <div>
+                <h1 class="breaks">Purchase Information <button onclick="add_fees()" class="float_but">Add other fees</button></h1>
+            </div>
+            <div class="inside">
+                <div class="lab_inp">
+                    <label onclick="by_price_info()" class="required" class="label">Buying Price</label>
+                    <input oninput="inp_change()" id="price" type="number">
+                </div>
+                <div id="feeses" class="lab_inp">
+                    <label onclick="clos_pric()" class="required" class="label">Closing Costs</label>
+                    <input oninput="inp_change()" id="closing_costs" type="number">
+                </div>
+                <!-- Add the add feature to add anyother fees -->
+            </div> 
+            <hr>
+            <h1 class="break">Loan Information <button onclick="show_loan_info()" class="loan_button" id="loan_but">Press if you didn't fully pay cash to enter loan info</button> <button onclick="hide_loan_infos()" id="hide_loan_info" class="loan_button">I paid fully cash and don't need to enter Loan info</button></h1>
+            <div class="inside" id="loan_info">
+                    <div class="lab_inp">
+                        <!-- Change the per of pur to down payment and chnage the alert information -->
+                        <label onclick="down_pay()" class="required" class="label">Down Payment %</label>
+                        <input oninput="inp_change()" id="down_payment" type="number">
+                    </div>
+                    <div class="lab_inp">
+                        <label onclick="int_info()" class="required" class="label">Interest rate %</label>
+                        <input oninput="inp_change()" id="interest" type="number">
+                    </div>
+                    <div class="lab_inp">
+                        <label onclick="loan_len_info()" class="required" class="label">Length (in years)</label>
+                        <input oninput="inp_change()" id="loan_len" type="number">
+                    </div>
+                    <div class="lab_inp">
+                        <label class="required" onclick="loan_points_info()" class="label">Loan points</label>
+                        <input oninput="inp_change()" id="loan_points" type="number">
+                    </div>
+            </div>
+            <hr>
+            <div>
+                <h1 onclick="inc_info()">Income<button onclick="add_income()" class="float_but">Add new Income</button></h1>
+            </div>
+            <div id="incomes" class="inside">
+                <div class="lab_inp">
+                    <label onclick="rent_info()" class="required" class="label">Rent</label>
+                    <input oninput="inp_change()" id="rent" type="number">
+                </div>
+            </div>
+            <hr>
+            <div>
+                <h1 onclick="exp_info()">Expenses<button onclick="add_new_expense()" class="float_but">Add new Expense</button></h1>
+            </div>
+            <div id="first_expenses_block" class="inside">
+                <div class="lab_inp">
+                    <label onclick="ins_info()" class="required" class="label">Insurance (Monthly)</label>
+                    <input oninput="inp_change()" id="insurance" type="text">
+                </div>
+                <div class="lab_inp">
+                    <label onclick="prop_tax()" class="required" class="label">Property Taxes (Monthly)</label>
+                    <input oninput="inp_change()" id="prop_tax" type="text">
+                </div>
+                <div class="lab_inp">
+                    <label onclick="hoa_info()" class="required" class="label">HOA Fees (Monthly)</label>
+                    <input oninput="inp_change()" id="HOA" type="text">
+                </div>
+            </div>
+            <p class="note">Following expenses are a % of your monthly income and are optional but recommended</p>
+            <div class="inside">
+                <div class="lab_inp">
+                    <label class="required" onclick="vac_info()" class="label">Vacancy (%)</label>
+                    <input min="0" max="100" oninput="inp_change()" id="vacancy" type="number">
+                </div>
+                <div class="lab_inp">
+                    <label class="required" onclick="rep_info()" class="label">Repairs & Maintainance (%)</label>
+                    <input min="0" max="100" oninput="inp_change()" id="repairs" type="number">
+                </div>
+                <div class="lab_inp">
+                    <label class="required" onclick="cap_info()" class="label">Capital repairs & fees (%)</label>
+                    <input min="0" max="100" oninput="inp_change()" id="cap_repairs" type="number">
+                </div>
+                <div class="lab_inp">
+                    <label class="required" onclick="prop_man_info()" class="label">Property Management (%)</label>
+                    <input min="0" max="100" oninput="inp_change()" id="prop_man" type="number">
+                </div>
+            </div>
+            <p class="note">Following are expeses added by you and should be in dollars and annual</p>
+            <div id="added_expenses" class="inside">
+
+            </div>
+            <hr>
+            <div>
+                <h1 class="breaks">Rehabbing Information <button onclick="show_repair()" id="yes_repair" class="float_but">Press if you will repair your property</button><button onclick="hide_repair()" id="no_repair" class="float_but">Press if you won't repair your property</button></h1>
+            </div>
+            <div id="rep_info" class="inside">
+                <div class="lab_inp">
+                    <label onclick="arv_info()" class="required" class="label">After Repair Value (ARV)</label>
+                    <input oninput="inp_change()" id="arv" type="number">
+                </div>
+                <div class="lab_inp">
+                    <label onclick="reh_info()" class="required" class="label">Rehab Cost</label>
+                    <input oninput="inp_change()" id="rehab" type="number">
+                </div>
+                            <!-- Add in breakdown add feature -->
+            </div>
+            <hr>
+            <h1>Property Growth</h1>
+            <div class="inside">
+                <div class="lab_inp">
+                    <label class="required" onclick="an_prop_gro()" class="label">Annual Property Growth %</label>
+                    <input value="2" oninput="inp_change()" id="prop_grow" type="text">
+                </div>
+            </div>
+
+            <div class="sub_button">
+                <p>Copyright© - 2021 - Ali Shadab Khowaja</p>
+                <input onclick="smoothScroll(document.getElementById('report'))" id="full_submit" value="Analyze/Rerun" type="submit">
+            </div>
+        </form>
+
+        <div id="report">
+            <div class="formargin"></div>
+            <div id="results_report_online">
+                <div id="name_of_prop">
+                    <div class="inside_for_P">
+                        <div id="add_and_first_sec">
+                            Report Name: Home Address, City, State, Zip Code
+                        </div>
+                        <p>IMP NOTE: Scroll all the way down to download the report as a PDF</p>
+                        <p>IMP NOTE: Scroll Up and edit numbers if you need to and press analyze again</p>
+                    </div>
+                    <div class="inside_for_image">
+                        <img id="rep_img" src="Logo.jpg">
+                    </div>
+                </div>
+                <div id="imp_nums">
+                    <div class="nums">
+                        <h2>Important Numbers</h2>
+                        <div class="nums_final">
+                            <div class="one_num">
+                                <h3>Cash Flow</h3>
+                                <h4 id="cash_flow">Number PlaceHolder</h4>
+                            </div>
+
+                            <div class="one_num">
+                                <h3>Monthly Income</h3>
+                                <h4 id="mon_inc">Number PlaceHolder</h4>
+                            </div>
+                        
+                            <div class="one_num">
+                                <h3>Montly Expenses</h3>
+                                <h4 id="month_exp">Number PlaceHolder</h4>
+                            </div>
+                            
+                            <div class="one_num">   
+                                <h3>Montly Mortgage Payment</h3>
+                                <h4 id="month_mor_pay">Number PlaceHolder</h4>
+                            </div>
+
+                            <div class="one_num">
+                                <h3>Cash on Cash Return on Investment (COC ROI)</h3>
+                                <h4 id="c_o_c">Number PlaceHolder</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="mak_grap" onclick="make_graph()">Click to Make Income vs Expense Graph</button>
+                    <div id="container" class="graph">
+                    </div>
+                </div>
+
+                <div id="less_imp_nums">
+                    <h2>Numbers You May Know</h2>
+                    <!-- <div class="main_nums"> -->
+                        <!-- <div class="income_break">
+                            <label>Income Breakdown</label>
+                            <div class="single_income_source">
+                                <h3>Rent</h3>
+                                <h4>Number Place Holder</h4>
+                            </div>
+                        </div>
+                        <div class="expense_break">
+                            <label>Expenses Breakdown</label>
+                            <div class="single_expense_source">
+                                <h3>Property Taxes</h3>
+                                <h4>Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>Mortgage</h3>
+                                <h4>Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>Insurance</h3>
+                                <h4>Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>HOA Fees</h3>
+                                <h4>Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>Vacancy</h3>
+                                <h4>Percentage: Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>Repairs/Maintainance</h3>
+                                <h4>Percentage: Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>Capital Repairs/Expenditures</h3>
+                                <h4>Percentage: Number Place Holder</h4>
+                            </div>
+                            <div class="single_expense_source">
+                                <h3>Property Management</h3>
+                                <h4>Percentage: Number Place Holder</h4>
+                            </div>
+                        </div> -->
+
+                        <div class="other_nums">
+                            <div>
+                                <label>Mortgage Principal</label>
+                                <h4 id="mort_princ_dis">Number Place Holder</h4>
+                            </div>
+
+                            <div>
+                                <label>Down Payment</label>
+                                <h4 id="down_pay_dis">Percentage: Number Place Holders</h4>
+                            </div>
+
+                            <div>
+                                <label>Annual Interest Rate</label>
+                                <h4 id="ann_inte">Percentage</h4>
+                            </div>
+                            
+                            <div>
+                                <label>Monthly Interest Rate</label>
+                                <h4 id="monthly_inte">Percentage</h4>
+                            </div>
+                            
+                            <div>
+                                <label>Closing Costs </label>
+                                <h4 id="closing_cost_dis">Percentage</h4>
+                            </div>
+                            
+                            <div>
+                                <label>Rehab Costs</label>
+                                <h4 id="rehab_costs_dis">Dollars</h4>                               
+                            </div>
+                    
+                            <div>
+                                <label>Home Value after Rehab (ARV)</label>
+                                <h4 id="home_val_dis">Dollars</h4>                               
+                            </div>
+
+                            <div>
+                                <label>Value gained after Rehab</label>
+                                <h4 id="equity_after_rehab_dis">Dollars</h4>                               
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+
+                <div class="inc_exp_break_graphs">
+                    <div class="inc_break_graph">
+                        <h2>Rent vs Other Income Graph</h2>
+                        <strong><button id="make_inc_but" onclick="make_inc_break_graph()">Click to make the Rent vs Other Incomes Graph</button></strong>
+                        <div id="income_break_graph"></div>
+                    </div>
+                    <div class="exp_break_graph">
+                        <h2 id="grand_total_exp">Monthly Expenses Breakdown:</h2>
+                            <div class="inside">
+                                <div>
+                                    <h3>Mortgage</h3>
+                                    <h4 id="mort_exp_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Insurance</h3>
+                                    <h4 id="ins_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Property Taxes</h3>
+                                    <h4 id="property_tax_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Property Management</h3>
+                                    <h4 id="property_man_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>HOA fees</h3>
+                                    <h4 id="hoa_fees_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Vacancy</h3>
+                                    <h4 id="vacancy_exp_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Maintainance/Repairs</h3>
+                                    <h4 id="main_rep_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Capital Expenditures</h3>
+                                    <h4 id="capital_expen_dis">Value</h4>
+                                </div>
+                                <div>
+                                    <h3>Others</h3>
+                                    <h4 id="others_expen_dis">Value</h4>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="exp_brk_grph">
+                        <h2>Expenses Breakdown Graph</h2>
+                        <strong><button onclick="make_exp_break_graph()" id="make_exp_but">Click to make the Expense Breakdown Graph</button></strong>
+                        <div id="expense_break_graph"></div>
+                    </div>
+                </div>
+
+                <div class="nums_for_geeks">
+                    <h2>Numbers For Geeks</h2>
+
+                    <div class="all_the_nums">
+                        <div class="single_num">
+                            <h3 onclick="noi()" id="NOI">Net Operating Income (NOI) with Capital Expenditures</h3>
+                            <h4 id="net_oi_with_cap">Number Place Holder</h4>
+                        </div>
+                        <div class="single_num">
+                            <h3 onclick="noi_no()" id="NOI">Net Operating Income (NOI) without Capital Expenditures</h3>
+                            <h4 id="net_oi_without_cap">Number Place Holder</h4>
+                        </div>
+                        <div class="single_num">
+                            <h3 id="pur_cap" onclick="purchase_cap_info()">Purchase Cap Rate</h3>
+                            <h4 id="pur_cap_shown">Number Place Holder</h4>
+                        </div>
+                        <div class="single_num">
+                            <h3 id="pro_cap" onclick="pro_cap_info()">Pro Forma Cap Rate</h3>
+                            <h4 id="pro_cap_shown">Number Place Holder</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g_o_t">
+                    <h2>Growth/Decline Over time</h2>
+
+                    <h3><u>Property Value</u></h3>
+                    <div class="years">
+                        <div class="year">
+                            <label>Year 1</label>
+                            <h4 id="prop_val_year_one">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 5</label>
+                            <h4 id="prop_val_year_five">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 10</label>
+                            <h4 id="prop_val_year_ten">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 15</label>
+                            <h4 id="prop_val_year_fifteen">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 30</label>
+                            <h4 id="prop_val_year_thirty">Ok</h4>
+                        </div>
+                    </div>
+                    <h3><u>Mortgage Balance</u></h3>
+                    <div class="years">
+                        <div class="year">
+                            <label>Year 1</label>
+                            <h4 id="af_year_one">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 5</label>
+                            <h4 id="af_year_five">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 10</label>
+                            <h4 id="af_year_ten">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 15</label>
+                            <h4 id="af_year_fifteen">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 30</label>
+                            <h4 id="af_year_thirty">Ok</h4>
+                        </div>
+                    </div>
+                    <h3><u>Your Equity</u></h3>
+                    <div class="years">
+                        <div class="year">
+                            <label>Year 1</label>
+                            <h4 id="eq_one">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 5</label>
+                            <h4 id="eq_five">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 10</label>
+                            <h4 id="eq_ten">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 15</label>
+                            <h4 id="eq_fif">Ok</h4>
+                        </div>
+                        <div class="year">
+                            <label>Year 30</label>
+                            <h4 id="eq_thi">Ok</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom_rep_extra">
+                <p>
+                    Download your extended full version of the report for free from the button below. Show this report to other people or potentially the seller or your partner to get the best deal and spread the word on it. The downloaded report is supposed to be used to show other people the information of the property and how the numbers work out. An extensive overview can be seen in the report above.
+                </p>
+                <p><u>Your free report will include</u></p>
+                <ul>
+                    <li>To the point information gathered from the report</li>
+                    <li>Important Numbers like Cash on Cash Return, NOI, etc</li>
+                    <li>Let me know if you would like something else added <a href="contact.html">HERE</a></li>
+                </ul> 
+                <p>Copyright© - 2021 - Ali Shadab Khowaja</p>
+                <p>
+                    Use of this calculator signifies that you have agreed to use this calculator just for informational and educational purposes. This is not financial advice. The numbers above may or may not reflect actual returns. RealEst will not be responsible for decision taken dependent on this calculator. Always seek advice before making any decision
+                </p>
+            </div>
+            <button class="down_but" onclick="down_rep()">Download the Report</button>
+        </div>
+    </div>
+    
+    <script src="report.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html>

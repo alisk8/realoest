@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYDMTWG4T6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XYDMTWG4T6');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealEst: Contact</title>
+    <link rel="stylesheet" href="nav_bar.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="shortcut icon" href="Titl_logo.jpg">
+    <script src="contact.js"></script>
+</head>
+<body class="scrollbar" id="style-1">
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="o.html">O.Tools</a></li>
+            <li><a href="articles.html">Articles/Videos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <h1 class="heading">Contact Me Form</h1>
+
+    <div class="reasons">
+    <h2 id="head" onclick="show_list()" class="reason_head">Reasons to reach out to me &#8609;</h2>
+    <div id="rea_list">
+        <ul>
+            <li>&#8465; Have a question about how to use or operate the website &#128562;</li>
+            <li>&#8465; Want a new feature or idea implemented in the website &#128522;</li>
+            <li>&#8465; Find an error or bug in the website &#128563;</li>
+            <li>&#8465; Don't like a particular feature, aesthetic, or style/font in the website and want it removed &#129488;</li>
+            <li>&#8465; Just want to talk &#129321;</li>
+        </ul>
+        <h2 onclick="hide_list()" class="reason_head">Collapse &#8607;</h2>
+    </div>
+    </div>
+
+    <h1>Form</h1>
+
+    <div class="the_form">
+        <form action="https://formsubmit.co/6145f99f05d4210560960629b6203aa7" method="POST" enctype="multipart/form-data">
+            <div class="specific">
+                <label>Name</label>
+                <input name="Name" required type="text">
+            </div>
+            <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="specific">
+                <label>E-mail</label>
+                <input name="Email" required type="text">
+            </div>
+            <div class="specific">
+                <label>Message or Concern</label>
+                <textarea name="message" required></textarea>
+            </div>
+            <input class="sub_but" type="submit">
+        </form>
+        <p>Copyright© - 2021 - Ali Shadab Khowaja</p>
+    </div>
+</body>
+</html>

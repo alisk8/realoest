@@ -1,0 +1,672 @@
+.head {
+  text-align: center;
+  margin-left: -100px;
+  font-size: 20px;
+}
+
+.h {
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+body {
+  overflow-x: hidden;
+}
+.main_con {
+  height: 100vh;
+  width: 100vw;
+  margin: 70px;
+}
+
+html {
+  background: url(back_for_others.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.lab_inp {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner_con,
+.label {
+  margin-left: 20px;
+}
+
+.inner_con > input {
+  margin-left: 40px;
+}
+
+label {
+  font-size: 20px;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 20px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+hr {
+  margin-right: 150px;
+}
+
+h1,
+h2 {
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  width: fit-content;
+}
+
+input {
+  margin-left: 25px;
+  margin-bottom: 15px;
+  height: 30px;
+  width: 200px;
+  outline: none;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+#pic {
+  display: none;
+}
+
+#pic_lab {
+  border: 2px solid black;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  margin-top: 80px;
+  background-color: inherit;
+  transition: 0.2s ease-in;
+}
+
+#pic_lab:hover {
+  background-color: black;
+  color: white;
+}
+
+.pic_upload {
+  border: 2px dashed grey;
+  margin-left: 20px;
+  height: 200px;
+  width: 350px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#output {
+  height: 100%;
+  width: 100%;
+  border: none;
+  display: none;
+}
+
+.inside {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.float_but {
+  float: right;
+  margin-right: 20%;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: inherit;
+  border: 1px solid black;
+  transition: 0.2s ease-in;
+}
+
+h2 {
+  cursor: pointer;
+}
+
+.loan_button {
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: inherit;
+  border: 1px solid black;
+  transition: 0.2s ease-in;
+  width: 340px;
+  float: right;
+  margin-right: 20%;
+}
+
+.float_but:hover,
+.loan_button:hover {
+  background-color: black;
+  color: white;
+}
+
+.note {
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 1010px) {
+  .inside {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .inside {
+    grid-template-columns: 1fr;
+  }
+  body {
+    overflow-x: auto;
+  }
+  .break {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .breaks {
+    display: flex;
+    flex-direction: column;
+  }
+  p {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  #loan_but {
+    padding: 0px;
+    width: 355px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .pic_upload {
+    width: 250px;
+  }
+  input {
+    max-width: 250px;
+  }
+}
+
+.required {
+  cursor: pointer;
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+#st_name {
+  width: 300px;
+}
+
+#city_inp {
+  width: 150px;
+}
+
+#zip_inp {
+  width: 70px;
+}
+
+#country {
+  width: 150px;
+}
+
+#brd {
+  width: 300px;
+}
+
+#closing_costs,
+#price,
+#rent,
+#insurance,
+#prop_tax,
+#arv,
+#rehab {
+  width: 100px;
+}
+
+#prop_grow {
+  margin-bottom: 50px;
+}
+
+.sub_button {
+  text-align: center;
+  margin-right: 20%;
+}
+
+#full_submit {
+  padding: 10px;
+  height: 50px;
+  width: 300px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  background-color: inherit;
+  transition: 0.3s ease-out;
+  border-radius: 0px;
+}
+
+#full_submit:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.2);
+}
+
+#loan_info {
+  display: none;
+}
+
+#hide_loan_info {
+  display: none;
+  width: 360px;
+  padding: 0px;
+}
+
+#no_repair {
+  display: none;
+}
+
+#rep_info {
+  display: none;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+#report {
+  display: none;
+  height: 1000px;
+}
+
+.formargin {
+  background-color: inherit;
+  width: 100%;
+  height: 30px;
+}
+
+#name_of_prop {
+  background-color: rgba(255, 255, 255, 0.253);
+  margin-top: 50px;
+  margin-right: 15%;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.inside_for_P > p {
+  font-size: 17px;
+}
+
+.inside_for_P {
+  margin-top: 10%;
+}
+
+.inside_for_image > img {
+  height: 200px;
+  width: 80%;
+}
+
+.inside_for_image {
+  margin-top: 5%;
+}
+
+#add_and_first_sec {
+  margin-left: 20px;
+}
+
+#imp_nums {
+  background-color: rgba(255, 255, 255, 0.411);
+  margin-right: 15%;
+  height: auto;
+  padding: 2%;
+  display: grid;
+  margin-bottom: 30px;
+  grid-template-columns: 1fr 1fr;
+  transition: 0.3s;
+}
+
+#less_imp_nums {
+  background-color: rgba(255, 255, 255, 0.582);
+  margin-right: 15%;
+  height: auto;
+  padding: 2%;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-left: 20px;
+  color: rgb(14, 207, 14);
+  font-size: 20px;
+}
+
+.nums_final {
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.graph {
+  text-align: center;
+  margin-top: 0px;
+  background-color: inherit;
+  width: 100%;
+  height: 380px;
+}
+
+#container {
+  display: none;
+}
+
+.income_break {
+  margin-left: 20px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.expense_break {
+  padding-left: 20px;
+  border-bottom: solid 2px black;
+}
+
+.income_break,
+.expense_break {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.other_nums {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.income_break > label,
+.expense_break > label {
+  margin-left: 0px;
+  font-size: 22px;
+}
+
+.main_nums {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.single_income_source,
+.single_expense_source {
+  margin-left: 20px;
+}
+
+.inc_exp_break_graphs,
+.nums_for_geeks,
+.g_o_t {
+  margin-right: 15%;
+  height: auto;
+  padding: 2%;
+  text-align: center;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.inc_exp_break_graphs {
+  background-color: rgba(255, 255, 255, 0.705);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.all_the_nums {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bottom_rep_extra {
+  margin-right: 20%;
+}
+
+.bottom_rep_extra > p,
+.bottom_rep_extra > ul > li {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bottom_rep_extra > ul {
+  list-style: square;
+}
+
+.down_but {
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color: inherit;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.down_but:hover {
+  background-color: black;
+  color: white;
+}
+
+.nums_for_geeks {
+  background-color: rgba(255, 255, 255, 0.836);
+  text-align: left;
+}
+
+.g_o_t {
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+}
+
+.years {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.year {
+  display: flex;
+}
+
+.inc_exp_break_graphs:hover,
+.nums_for_geeks:hover,
+.g_o_t:hover,
+#less_imp_nums:hover,
+#imp_nums:hover,
+#name_of_prop:hover {
+  transform: scale(1.1);
+}
+
+#mak_grap {
+  background-color: white;
+  font-size: 25px;
+  border: none;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+#mak_grap:hover {
+  background-color: black;
+  color: white;
+}
+
+.exp_break_graph > div {
+  text-align: left;
+}
+
+.exp_break_graph > .inside {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#make_inc_but,
+#income_break_graph {
+  height: 80%;
+  width: 90%;
+  margin-top: 20px;
+}
+
+#make_inc_but,
+#make_exp_but {
+  font-size: 25px;
+  background-color: white;
+  border: none;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+#make_inc_but:hover,
+#make_exp_but:hover {
+  background-color: black;
+  color: white;
+}
+
+#make_exp_but {
+  width: 200%;
+  margin-left: 0px;
+  height: 80%;
+}
+.exp_brk_grph {
+  height: 450px;
+}
+
+#expense_break_graph {
+  width: 200%;
+  height: 80%;
+}
+
+#NOI,
+#pur_cap,
+#pro_cap {
+  cursor: pointer;
+}
+
+#instant_equity {
+  width: 100px;
+}
+
+.sub_button > p {
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 990px) {
+  #imp_nums {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .inc_exp_break_graphs {
+    grid-template-columns: 1fr;
+  }
+  .exp_break_graph {
+    margin-top: 40px;
+  }
+  #make_exp_but {
+    width: 100%;
+  }
+  #expense_break_graph {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  #rep_img {
+    display: none;
+  }
+  #name_of_prop {
+    grid-template-columns: 1fr;
+  }
+  .inside_for_P {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #name_of_prop,
+  #imp_nums,
+  #less_imp_nums,
+  .inc_exp_break_graphs,
+  .nums_for_geeks,
+  .g_o_t,
+  .bottom_rep_extra {
+    margin-right: 5%;
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .years {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .years {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exp_break_graph > .inside {
+    grid-template-columns: 1fr 1fr;
+  }
+  html {
+    background: url(back.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+.hundpix {
+  width: 100px;
+}
+
+#state_inp,
+#bd,
+#br,
+#sq,
+#loan_points,
+#loan_len,
+#interest,
+#down_payment,
+#HOA,
+#vacancy,
+#repairs,
+#cap_repairs,
+#prop_man,
+#prop_grow {
+  width: 50px;
+}
+
+.para {
+  background-color: rgba(255, 255, 255, 0.377);
+}
